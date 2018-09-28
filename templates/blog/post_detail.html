@@ -13,40 +13,21 @@
     <title>Document</title>
 </head>
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a href="" class="navbar-brand">DjangoGirls</a>
     </nav>
     <div class="container mt-2">
         <div class="card mb-2">
             <div class="card-body">
-                {% for post in posts %}
-                <h4 class="card-title"><a href="/posts/{{ post.id }}">{{post.title}}</a></h4>
+                <h4 class="card-title">{{post.title}}</h4>
                 <div>
                     <h6 class="card-subtitle mb-2 text-muted">{{post.created_date}}</h6>
-                    <p class="card-text">{{post.text|linebreaksbr|truncatechars:200}}</p>
-                    <!--linebreaksbr 옵션을 주면 줄바꿈을 인식한다.-->
-                    <!--truncatechars:200 200글자 이후로는 ... 으로 줄여써진다.-->
+                    <p class="card-text">{{post.text|linebreaksbr}}</p>
                     <p class="text-right">Author: {{post.author}}</p>
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
-    <!--<h1>Post List</h1>-->
-    <!--<ul>-->
-        <!--{% for post in posts %}-->
-        <!--<li>{{ post.title }}</li>-->
-        <!--{% endfor %}-->
-        <!--&lt;!&ndash;템플릿에서의 코딩기호 %&ndash;&gt;-->
-    <!--</ul>-->
-
-
-
-    <!--{{ posts|safe }}-->
-    <!--|safe라는 필터를 추가하는 것으로 전달받은 텍스트를 코드로 인식하게끔 해준다.-->
-    <!--{{ request }}-->
-    <!--{{pokemon}}-->
-<!--templates에서는 위와 같이 중괄호 2개로 변수를 출력할 수 있다. python과 문법이 다름-->
 </body>
 </html>
