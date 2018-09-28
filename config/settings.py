@@ -13,8 +13,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# 편의를 위한 정의들
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+
+# 장고가 /static/<경로>/ dml URL에서
+# '경로'에 해당하는 부분을 검색할 폴더 목록에 대한 설정
+STATICFILES_DIRS = [
+    STATIC_DIR,
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -127,3 +135,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+# 1. 개발모드에서
+# 2. settings.STATIC_URL에 해당하는 request는
+# 3. settings.STATICFILES_DIRS 리스트 내의 경로목록 각각의 하위 위치에서 해당 파일을 검색, 존재할 경우
+# 그 파일을 리턴해준다.
+# 즉, 기존의 127.1.8000/admin 과 같은 경우는 URLresolver(urls.py)에 등록되어 있는 곳으로 연결하는 것과 달리,
+# 127.1.8000/static/~.. 으로 올 때, 위 조건에 따라 settings를 설정해놓은 경우 urlresolver에 등록되지 않아도 알아서 경로를 찾아준다.

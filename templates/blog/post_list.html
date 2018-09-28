@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,13 +6,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <!--{% static}~ 은 urlresolver없이 경로를 생성해주는 기능인데, 위의 load static을 먼저 해둬야 쓸 수 있다.-->
+
     <title>Document</title>
 </head>
 <body>
     <h1>Post List</h1>
     <ul>
         {% for post in posts %}
-        <li>{{ post.title}}</li>
+        <li>{{ post.title }}</li>
         {% endfor %}
         <!--템플릿에서의 코딩기호 %-->
     </ul>

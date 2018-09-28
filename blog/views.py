@@ -17,7 +17,8 @@ def post_list(request):
     #해당 템플을 렌더링
 
     context = {
-        'posts': '<ul>' + ''.join([f'<li>{post.title}</li>' for post in posts]) + '</ul>',
+        'posts': posts
+            # '<ul>' + ''.join([f'<li>{post.title}</li>' for post in posts]) + '</ul>',
     }
     #context = {'pokemon' : random.choice(['피카츄','파이리','꼬부기'])}
     # content = template.render(context, request)
