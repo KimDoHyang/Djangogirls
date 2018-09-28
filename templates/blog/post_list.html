@@ -24,8 +24,10 @@
                 <h4 class="card-title">{{post.title}}</h4>
                 <div>
                     <h6 class="card-subtitle mb-2 text-muted">{{post.created_date}}</h6>
-                    <h6 class="card-text">{{post.text}}</h6>
-                    <h6 class="text-right">{{post.author}}</h6>
+                    <p class="card-text">{{post.text|linebreaksbr|truncatechars:200}}</p>
+                    <!--linebreaksbr 옵션을 주면 줄바꿈을 인식한다.-->
+                    <!--truncatechars:200 200글자 이후로는 ... 으로 줄여써진다.-->
+                    <p class="text-right">Author: {{post.author}}</p>
                 </div>
                 {% endfor %}
             </div>
