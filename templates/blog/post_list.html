@@ -9,9 +9,10 @@
 </head>
 <body>
     <h1>Post List</h1>
-    <p>{{ request }}
-        <!--{{pokemon}}-->
-    </p>
-<!--templates에서는 위와 같이 {{}}로 변수를 출력할 수 있다. python과 문법이 다름-->
+    {{ posts|safe }}
+    <!--|safe라는 필터를 추가하는 것으로 전달받은 텍스트를 코드로 인식하게끔 해준다.-->
+    <!--{{ request }}-->
+    <!--{{pokemon}}-->
+<!--templates에서는 위와 같이 중괄호 2개로 변수를 출력할 수 있다. python과 문법이 다름-->
 </body>
 </html>
