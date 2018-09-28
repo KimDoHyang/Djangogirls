@@ -13,13 +13,31 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post List</h1>
-    <ul>
-        {% for post in posts %}
-        <li>{{ post.title }}</li>
-        {% endfor %}
-        <!--템플릿에서의 코딩기호 %-->
-    </ul>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="" class="navbar-brand">DjangoGirls</a>
+    </nav>
+    <div class="container mt-2">
+        <div class="card mb-2">
+            <div class="card-body">
+                {% for post in posts %}
+                <h4 class="card-title">{{post.title}}</h4>
+                <div>
+                    <h6 class="card-subtitle mb-2 text-muted">{{post.created_date}}</h6>
+                    <h6 class="card-text">{{post.text}}</h6>
+                    <h6 class="text-right">{{post.author}}</h6>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--<h1>Post List</h1>-->
+    <!--<ul>-->
+        <!--{% for post in posts %}-->
+        <!--<li>{{ post.title }}</li>-->
+        <!--{% endfor %}-->
+        <!--&lt;!&ndash;템플릿에서의 코딩기호 %&ndash;&gt;-->
+    <!--</ul>-->
 
 
 
