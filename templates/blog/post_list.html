@@ -1,25 +1,33 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+{% extends 'base.html' %}
+<!--setting에서 templates는 templates폴더를 루트로 하기로 했으므로 'base.html'-->
+<!--extends는 언제나 항상 가장 위에 있어야함(주석 포함해서)-->
+
+<!--{% load static %}-->
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
     <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">-->
     <!--{% static}~ 은 urlresolver없이 경로를 생성해주는 기능인데, 위의 load static을 먼저 해둬야 쓸 수 있다.-->
 
-    <title>Document</title>
-</head>
-<body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="" class="navbar-brand">DjangoGirls</a>
-    </nav>
-    <div class="container mt-2">
-        <div class="card mb-2">
-            <div class="card-body">
+    <!--<title>Document</title>-->
+<!--</head>-->
+<!--<body>-->
+    <!---->
+    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+        <!--<a href="/" class="navbar-brand">DjangoGirls</a>-->
+    <!--</nav>-->
+    <!--<div class="container mt-2">-->
+        <!--<div class="card mb-2">-->
+            <!--<div class="card-body">-->
+
+
+                {% block content %}
+
                 {% for post in posts %}
                 <h4 class="card-title"><a href="/posts/{{ post.pk }}">{{post.title}}</a></h4>
                 <div>
@@ -30,9 +38,10 @@
                     <p class="text-right">Author: {{post.author}}</p>
                 </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
+                {% endblock %}
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
     <!--<h1>Post List</h1>-->
     <!--<ul>-->
         <!--{% for post in posts %}-->
@@ -48,5 +57,5 @@
     <!--{{ request }}-->
     <!--{{pokemon}}-->
 <!--templates에서는 위와 같이 중괄호 2개로 변수를 출력할 수 있다. python과 문법이 다름-->
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
