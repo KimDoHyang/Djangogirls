@@ -199,7 +199,10 @@ def post_list(request):
 
 
 def post_create(request):
-    return render(request, 'blog/post_create.html')
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'blog/post_create.html')
     '''
     Template : blog/post_create.html
     URL : /post/create/

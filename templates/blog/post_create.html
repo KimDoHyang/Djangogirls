@@ -2,6 +2,9 @@
     {% block content %}
         <h2>새 포스트 작성</h2>
         <form action="" method="POST">
+            {% csrf_token %}
+            <!--post방식의 전송방식에는 csrf 보안이 자동으로 작동한다.-->
+            <!--위 코드를 통해서 csrf의 현재 접속한 사용자를 위한 key를 함께 전송해야만 post 방식의 정보가 전송될 수 있다.-->
             <div class="form-group">
                 <label for="id-title">제목</label>
                 <input type="text" id="id-title" name="title" class="form-control">
