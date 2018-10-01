@@ -20,6 +20,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 
 # 장고가 /static/<경로>/ dml URL에서
 # '경로'에 해당하는 부분을 검색할 폴더 목록에 대한 설정
+# [] 와 , 을 빼놓지 않도록 주의할 것
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
@@ -31,6 +32,7 @@ STATICFILES_DIRS = [
 SECRET_KEY = '+@%mt5d144t-kbtcr$+w!22l))vpf%4f5qy0_q*te=i6t@!0uv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG는 True여야함.
 DEBUG = True
 
 ALLOWED_HOSTS = []

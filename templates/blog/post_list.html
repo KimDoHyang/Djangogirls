@@ -21,7 +21,7 @@
         <div class="card mb-2">
             <div class="card-body">
                 {% for post in posts %}
-                <h4 class="card-title"><a href="/posts/{{ post.id }}">{{post.title}}</a></h4>
+                <h4 class="card-title"><a href="/posts/{{ post.pk }}">{{post.title}}</a></h4>
                 <div>
                     <h6 class="card-subtitle mb-2 text-muted">{{post.created_date}}</h6>
                     <p class="card-text">{{post.text|linebreaksbr|truncatechars:200}}</p>
