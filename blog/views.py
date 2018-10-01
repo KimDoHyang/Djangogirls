@@ -198,3 +198,20 @@ def post_list(request):
 #     -> 리턴된 결과는 브라우저에 표시
 
 
+def post_create(request):
+    return render(request, 'blog/post_create.html')
+    '''
+    Template : blog/post_create.html
+    URL : /post/create/
+    URL Name : post-create
+
+    템플릿에 하나의 <form요소>를 구현
+    input[name="title"]
+    button[type="submit"]
+
+    post_create.html을 보여주는 링크를 base.html에 구현
+    {url} 태그를 사용할것.
+
+    :param request:
+    :return:
+    '''

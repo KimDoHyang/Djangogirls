@@ -20,6 +20,12 @@
         <!--request(url) > urlreslover > (resolve) > view function-->
         <!-- - URL reverse-->
         <!--template > {% url [url name] } > (reverse) > url-->
+        <ul class="navbar-nav mr-auto"></ul>
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="{% url 'post-create' %}" class="nav-link">+ 글 작성</a>
+            </li>
+        </ul>
     </nav>
     <div class="container mt-2">
         {% block content %}
