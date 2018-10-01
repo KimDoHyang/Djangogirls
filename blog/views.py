@@ -1,7 +1,10 @@
 import os
+
+from django.urls import reverse
+
 from .models import Post
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.shortcuts import render
@@ -27,7 +30,7 @@ def post_detail(request, pk):
 
 
 def post_list(request):
-    posts = Post.objects.order_by('created_date')
+    posts = Post.objects.order_by('created_date').reverse()
     # 템플릿을 가져온다
     # template = loader.get_template('blog/post_list.html')
     #해당 템플을 렌더링
@@ -210,12 +213,18 @@ def post_create(request):
             title=title,
             text=text,
         )
-        next_path = '/blog-posts/'
-        return HttpResponseRedirect(next_path)
+
+        # next_path = reverse('post-list')
+        # return HttpResponseRedirect(next_path)
+
+        return redirect('post-list')
+
         # return HttpResponse(f'제목: {title}<br>내용: {text}')
+
     else:
         return render(request, 'blog/post_create.html')
         # 전달할게 없으므로 그냥 context없이 전달해서 render
+
     '''
     Template : blog/post_create.html
     URL : /post/create/
