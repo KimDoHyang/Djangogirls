@@ -29,7 +29,8 @@
                 {% block content %}
 
                 {% for post in posts %}
-                <h4 class="card-title"><a href="/posts/{{ post.pk }}">{{post.title}}</a></h4>
+                <h4 class="card-title"><a href="{% url 'post-detail' pk=post.pk %}">{{post.title}}</a></h4>
+<!--/posts/{{ post.pk }}-->
                 <div>
                     <h6 class="card-subtitle mb-2 text-muted">{{post.created_date}}</h6>
                     <p class="card-text">{{post.text|linebreaksbr|truncatechars:200}}</p>

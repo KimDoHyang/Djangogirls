@@ -22,9 +22,9 @@ from blog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.post_list),
+    url(r'^blog-posts/$', views.post_list, name='post-list'),
     # url(r'^posts/\d+/$', views.post_detail),
-    url(r'^posts/(?P<pk>\d+)/$', views.post_detail)
+    url(r'^blog-posts/(?P<pk>\d+)/$', views.post_detail, name='post-detail')
     #위와 같은 경우, 그룹화를 시키게 되면 이 그룹화 한 것이 두번재 인수로서 전달되도록 한다.
     # 이 경우 request가 오면 post_detail(request, pk=<요청된 값>)으로 전달된다.
 
